@@ -38,10 +38,7 @@ app.all('*', (req, res, next) => {
 //End Block Setting the Headers for you Application
 
 //Start Block Set Static Folders (Absolute)
-app.use('/AdminImages',express.static('AdminImages'));
-app.use('/UserImages',express.static('UserImages'));
-app.use('/FeatureProducts',express.static('FeatureProducts'));
-app.use('/files',express.static('files'));
+app.use('/assets',express.static('assets'));
 app.use(express.static(path.join(__dirname,'/FrontEnd')));
 //End Block Set Static Folders (Absolute)
 
@@ -49,11 +46,13 @@ app.use(express.static(path.join(__dirname,'/FrontEnd')));
 //LoadingRoutes in Variable
 const _AdminManagementRoute = require('./routes/AdminManagementRoute');
 const _UserManagementRoute = require('./routes/UserManagementRoute'); 
+const _ServiceManagementRoute = require('./routes/ServiceManagementRoutes');
 //LoadingRoutes in Variable
 
 //UsingRoutes
 app.use('/AdminManagement',_AdminManagementRoute);
 app.use('/UserManagement',_UserManagementRoute);
+app.use('/ServiceManagement',_ServiceManagementRoute);
 //UsingRoutes
 
 //End Block Load Routes

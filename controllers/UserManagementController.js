@@ -6,25 +6,22 @@ const bcrypt = require('bcrypt');
 const UserRegister = async (req, res) => {
     try {
         const _RegisterUserToSave = new _UserCluster({
-            Name: req.body.name,
+            Name: req.body.Name,
             // LName: req.body.LName,
             // SFN: req.body.sfn,
             // SLN: req.body.sln,
-            Email: req.body.email,
-            Mobile: req.body.mobile,
-            Password: req.body.password,
+            Email: req.body.Email,
+            Mobile: req.body.Mobile,
+            Password: req.body.Password,
             // Department: req.body.Department,
-            Address: req.body.address,
-            CourseCategory: req.body.CourseCategory,
-            CourseSubCategory: req.body.CourseSubCategory,
-            CoursePrice: req.body.CoursePrice
+            Address: req.body.Address,
+            Category: req.body.Category,
             // ImageUrl: req.file.filename,
             // ImageName: req.file.originalname,
             // ImageMimeType: req.file.mimetype,
         });
         await _RegisterUserToSave.save();
-        const _SendEmailFromUserRegisteration = await SendEmailUsingNodeMailer(req.body.email);
-        res.json({ Message: 'User Register Successfully', Result: true, Data: true, EmailInformation:_SendEmailFromUserRegisteration });
+        res.json({ Message: 'User Register Successfully', Result: true, Data: true});
 
     } catch (error) {
         // fs.unlinkSync(`./assets/Users/${req.file.filename}`);
@@ -34,8 +31,8 @@ const UserRegister = async (req, res) => {
 
 const UserLogin = async (req, res) => {
     try {
-        _Email = req.body.email;
-        _Password = req.body.password;
+        _Email = req.body.Email;
+        _Password = req.body.Password;
         const _UserToAuthenticate = await _UserCluster.findOne({ Email: _Email });
 
         if (_UserToAuthenticate === null) {

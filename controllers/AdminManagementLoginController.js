@@ -7,8 +7,8 @@ const bcrypt = require('bcrypt');
 const AdminLogin = async (req, res) => {
     console.log(req.body);
     try {
-        _Email = req.body.email;
-        _Password = req.body.password;
+        _Email = req.body.Email;
+        _Password = req.body.Password;
         const _AdminToAuthenticate = await _AdminManagementRegisterModel.findOne({ Email: _Email });
        
         console.log(_AdminToAuthenticate);

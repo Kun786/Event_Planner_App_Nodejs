@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 // Dependince
 
+
 //Block Start For Hashing the ImageUrl
 const hashFunc = (fileName) => {
     const hash = crypto.createHash('md5');
@@ -15,10 +16,10 @@ const hashFunc = (fileName) => {
 
 
 //Block Start MiddleWare For handling The Single Image WIth HashFunction.
-let FeeVoucherImage = multer({
+let UploadServiceImage = multer({
     storage: multer.diskStorage({
         destination: (req, next, cb) => {
-            let path = `./assets/FeeVouchers/${req.body.Email}`;
+            let path = `./assets/Service`;
             if (!fs.existsSync(path)) {
                 fs.mkdirSync(path, function (err,res) {
                     if (err) {
@@ -46,4 +47,4 @@ let FeeVoucherImage = multer({
 });
 //Block Ends MiddleWare For handling The Single Image WIth HashFunction.
 
-module.exports = { FeeVoucherImage };
+module.exports = { UploadServiceImage };
