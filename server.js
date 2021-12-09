@@ -39,7 +39,6 @@ app.all('*', (req, res, next) => {
 
 //Start Block Set Static Folders (Absolute)
 app.use('/assets',express.static('assets'));
-app.use(express.static(path.join(__dirname,'/FrontEnd')));
 //End Block Set Static Folders (Absolute)
 
 //Start Block Load Routes
@@ -57,14 +56,6 @@ app.use('/ServiceManagement',_ServiceManagementRoute);
 
 //End Block Load Routes
 
-
-//Serving Front End From Express Server
-app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname+'/FrontEnd/index.html'));
-    console.log(__dirname);
-});
-
-// End Block Checking Routes
 
 //Start Block Checking Routes As express not found Url not Founded we need to do it explicitly 
 app.use((req,res,next)=>{
