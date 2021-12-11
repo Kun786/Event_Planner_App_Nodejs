@@ -1,4 +1,5 @@
 const _AdminManagementRegisterModel = require('../models/AdminManagementRegisterModel');
+const _UserCluster = require('../models/UserManagementModel');
 const fs = require('fs');
 
 const AdminRegister= async(req,res)=>{
@@ -32,5 +33,40 @@ const AdminRegister= async(req,res)=>{
     }
 }
 
-module.exports = {AdminRegister};
+const GetAllAvailServicesUsers = async (req,res) =>{
+    try {
+        const _GetAllAvailServicesUsers = await _UserCluster.find({Category:'Avail Service'});
+        res.json({
+            Message:'Found Successfully',
+            Data:true,
+            Result:_GetAllAvailServicesUsers
+        })
+    } catch (error) {
+        res.json({
+            Message:error.message,
+            Data:false,
+            Result:null
+        })
+    }
+}
+
+const GetAllServiceProviderUsers = async (req,res) =>{
+    try {
+        const _GetAllServiceProviderUsers = await _UserCluster.find({Category:'Service Provider'});
+        res.json({
+            Message:'Found Successfully',
+            Data:true,
+            Result:_GetAllServiceProviderUsers
+        })
+    } catch (error) {
+        res.json({
+            Message:error.message,
+            Data:false,
+            Result:null
+        })
+    }
+}
+
+
+module.exports = { AdminRegister, GetAllAvailServicesUsers ,GetAllServiceProviderUsers };
 

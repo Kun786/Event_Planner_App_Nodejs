@@ -104,5 +104,23 @@ const GetALlUsersOrStudents = async (req,res) => {
     }
 }
 
-module.exports = { UserLogin, UserRegister, GetALlUsersOrStudents };
+const GetUserById = async (req,res) => {
+    try {
+        const _GetUserId = req.params._UserId;
+        const _GetUserById = await _UserCluster.findById({_id:_GetUserId});
+        res.json({
+            Message:'user Found Successfully',
+            Data:true,
+            Result:_GetUserById
+        })
+    } catch (error) {
+        res.json({
+            Message:error.message,
+            Data:false,
+            Result:null
+        })
+    }
+}
+
+module.exports = { UserLogin, UserRegister, GetALlUsersOrStudents, GetUserById };
 
