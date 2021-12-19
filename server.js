@@ -58,7 +58,7 @@ app.use('/ServiceManagement',_ServiceManagementRoute);
 
 
 app.get('*', (req, res) => {
-    console.log('Server is runnig');
+    res.send('App is Running');
 });
 
 
