@@ -59,6 +59,8 @@ app.use('/ServiceManagement',_ServiceManagementRoute);
 
 app.get('*', (req, res) => {
     res.send('App is Running');
+    console.log('https://www.youtube.com/watch?v=c4_xPM7zSAY');
+    console.log('Yeh link hai for heroku deployment');
 });
 
 
