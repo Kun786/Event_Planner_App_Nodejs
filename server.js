@@ -57,6 +57,11 @@ app.use('/ServiceManagement',_ServiceManagementRoute);
 //End Block Load Routes
 
 
+app.get('*', (req, res) => {
+    console.log('Server is runnig');
+});
+
+
 //Start Block Checking Routes As express not found Url not Founded we need to do it explicitly 
 app.use((req,res,next)=>{
     const error= new Error('Url not found'); 
