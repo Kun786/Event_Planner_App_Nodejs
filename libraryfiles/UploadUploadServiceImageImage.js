@@ -19,7 +19,7 @@ const hashFunc = (fileName) => {
 let UploadServiceImage = multer({
     storage: multer.diskStorage({
         destination: (req, next, cb) => {
-            let path = `../assets/Service`;
+            let path = `./assets/Service`;
             if (!fs.existsSync(path)) {
                 fs.mkdirSync(path, function (err,res) {
                     if (err) {
