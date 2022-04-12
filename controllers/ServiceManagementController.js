@@ -129,6 +129,7 @@ const UpdateServiceById = async (req, res) => {
             Result: _UpdatedPayload
         })
     } catch (error) {
+        console.log(error.message);
         res.json({
             Message: error.message,
             Data: false,
