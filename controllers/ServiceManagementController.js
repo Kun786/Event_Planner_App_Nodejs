@@ -97,6 +97,7 @@ const UpdateServiceById = async (req, res) => {
     try {
         const _GetServiceId = req.params._ServiceId;
         const _PayloadToUpdate = req.body;
+        console.log(_PayloadToUpdate);
         const _GetServiceById = await _ServiceManagementCluster.findById({ _id: _GetServiceId });
         const _UpdatedPayload = await _ServiceManagementCluster.updateOne(
             { _id: _GetServiceId },
