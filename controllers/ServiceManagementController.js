@@ -104,9 +104,9 @@ const UpdateServiceById = async (req, res) => {
             {
                 $set: {
                     // _PayloadToUpdate,
-                    // ImageUrl: `/assets/Service/${req.file.filename}`,
-                    // ImageName: req.file.originalname,
-                    // ImageMimeType: req.file.mimetype,
+                    ImageUrl: `/assets/Service/${req.file.filename}`,
+                    ImageName: req.file.originalname,
+                    ImageMimeType: req.file.mimetype,
                     BasicPrice: req.body.BasicPrice,
                     BasicDescription: req.body.BasicDescription,
                     StandardPrice: req.body.StandardPrice,
