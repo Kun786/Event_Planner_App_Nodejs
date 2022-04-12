@@ -6,6 +6,8 @@ const fs = require('fs');
 
 const AddService = async (req, res) => {
     try {
+        console.log(req.file);
+        console.log(req.body);
         const _ServiceToAdd = {
             BasicPrice: req.body.BasicPrice,
             BasicDescription: req.body.BasicDescription,
