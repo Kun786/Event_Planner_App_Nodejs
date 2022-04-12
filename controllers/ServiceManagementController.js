@@ -98,7 +98,6 @@ const UpdateServiceById = async (req, res) => {
         const _GetServiceId = req.params._ServiceId;
         const _PayloadToUpdate = req.body;
         const _GetServiceById = await _ServiceManagementCluster.findById({ _id: _GetServiceId });
-        fs.unlinkSync(`.${_GetServiceById.ImageUrl}`);
         const _UpdatedPayload = await _ServiceManagementCluster.updateOne(
             { _id: _GetServiceId },
             {
